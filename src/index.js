@@ -1,17 +1,35 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// CHALLENGE: uncomment the code below and see the car stats rendered
+import React from "react";
+import ReactDOM from "react-dom";
+import cars from './practice';
+
+const [honda, tesla] = cars;
+
+const {speedStats: { topSpeed:hondaTopSpeed } } = honda;
+
+const {speedStats: { topSpeed:teslaTopSpeed } } = tesla;
+
+const {colorsByPopularity:[hondaTopColor]} = honda;
+const {colorsByPopularity:[teslaTopColor]} = tesla;
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <table cellSpacing="20px">
+    <tr>
+      <th>Brand</th>
+      <th>Top Speed</th>
+      <th>Top Color</th>
+    </tr>
+    <tr>
+      <td>{tesla.model}</td>
+      <td>{teslaTopSpeed}</td>
+      <td>{teslaTopColor}</td>
+    </tr>
+    <tr>
+      <td>{honda.model}</td>
+      <td>{hondaTopSpeed}</td>
+      <td>{hondaTopColor}</td>
+    </tr>
+  </table>,
+  document.getElementById("root")
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
